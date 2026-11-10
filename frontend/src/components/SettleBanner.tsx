@@ -23,9 +23,9 @@ export function SettleBanner() {
   );
 
   return (
-    <div className="panel mb-6 border-gold/30 bg-gold/[0.045] p-4 sm:flex sm:items-center sm:justify-between sm:gap-4">
+    <div className="panel settle-pulse mb-6 border-gold/30 bg-gold/[0.045] p-4 sm:flex sm:items-center sm:justify-between sm:gap-4">
       <div className="flex items-start gap-3">
-        <span className="mt-0.5 text-lg" aria-hidden>
+        <span className="settle-hourglass mt-0.5 text-lg" aria-hidden>
           ⏳
         </span>
         <div>

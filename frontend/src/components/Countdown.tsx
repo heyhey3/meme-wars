@@ -27,6 +27,7 @@ export function Countdown({
   const remainingMs = Number(
     (remainingNs > 0n ? remainingNs : 0n) / 1_000_000n,
   );
+  const urgent = remainingMs > 0 && remainingMs <= 10_000;
   const dayLength = BigInt(
     Math.max(1, clock.day_end_ns - clock.day_start_ns),
   );
@@ -50,7 +51,12 @@ export function Countdown({
           </div>
         </div>
         <div className="text-right">
-          <div className="tabular text-3xl font-semibold leading-none text-white sm:text-4xl">
+          <div
+            className={cn(
+              "tabular text-3xl font-semibold leading-none text-white sm:text-4xl",
+              urgent && "countdown-urgent",
+            )}
+          >
             {formatCountdown(remainingMs)}
           </div>
           <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
@@ -58,7 +64,7 @@ export function Countdown({
           </div>
         </div>
       </div>
-      <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[#0a1120]">
+      <div className="countdown-progress mt-3 h-1.5 overflow-hidden rounded-full bg-[#0a1120]">
         <div
           className="h-full rounded-full bg-gradient-to-r from-gold via-dogs-soft to-dogs transition-[width] duration-700"
           style={{ width: `${Math.max(2, progress)}%` }}

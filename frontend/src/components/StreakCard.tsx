@@ -38,6 +38,11 @@ export function StreakCard({ snapshot }: { snapshot: GameSnapshot }) {
         <div>
           <div className="eyebrow">Personal streak</div>
           <div className="mt-1 flex items-baseline gap-2">
+            {member.streak > 0 ? (
+              <span className="streak-flame text-xl" aria-hidden>
+                🔥
+              </span>
+            ) : null}
             <span className="text-2xl font-semibold text-white">
               {member.streak}
             </span>
@@ -76,7 +81,7 @@ export function StreakCard({ snapshot }: { snapshot: GameSnapshot }) {
                   : enlistment
                     ? "border-transparent text-[#07101e]"
                     : "border-line bg-black/20 text-muted/60",
-                isToday && "ring-1 ring-white/30",
+                isToday && "streak-today",
               )}
               style={
                 enlistment && !isFuture

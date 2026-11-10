@@ -29,14 +29,15 @@ export function MapGrid({
             title={label}
             aria-label={label}
             className={cn("map-cell", meta && "map-cell-owned")}
-            style={
-              meta
+            style={{
+              ...(meta
                 ? {
                     background: `linear-gradient(135deg, ${meta.color}38, ${meta.color}0e)`,
                     borderColor: `${meta.color}66`,
                   }
-                : undefined
-            }
+                : {}),
+              animationDelay: `${Math.min(index * 18, 360)}ms`,
+            }}
           >
             {meta ? (
               <span

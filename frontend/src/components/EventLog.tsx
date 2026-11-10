@@ -203,12 +203,18 @@ export function EventLog({
         </p>
       ) : (
         <div className="mt-3 space-y-0.5">
-          {entries.map((entry) => {
+          {entries.map((entry, index) => {
             const info = eventInfo(entry, config);
             return (
               <div
                 key={entry.id}
-                className="flex items-start gap-2.5 rounded-lg px-2 py-2 transition hover:bg-white/[0.025]"
+                className={cn(
+                  "log-entry flex items-start gap-2.5 rounded-lg px-2 py-2 transition hover:bg-white/[0.025]",
+                  index === 0 && "log-entry-latest",
+                )}
+                style={{
+                  animationDelay: `${Math.min(index, 8) * 35}ms`,
+                }}
               >
                 <span
                   className={cn(

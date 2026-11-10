@@ -37,7 +37,7 @@ export function FactionPicker({
       >
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <span className="text-3xl">{meta.emoji}</span>
+            <span className="faction-emoji text-3xl">{meta.emoji}</span>
             <div>
               <div className="eyebrow">Your faction</div>
               <div className="text-lg font-semibold" style={{ color: meta.color }}>
@@ -100,7 +100,7 @@ export function FactionPicker({
               aria-pressed={active}
               onClick={() => setSelected(meta.id)}
               className={cn(
-                "group rounded-xl border p-4 text-left transition",
+                "faction-card group rounded-xl border p-4 text-left transition",
                 active
                   ? "bg-white/[0.05]"
                   : "border-line bg-black/20 hover:bg-white/[0.03]",
@@ -111,7 +111,7 @@ export function FactionPicker({
               }}
             >
               <div className="flex items-center justify-between">
-                <span className="text-4xl">{meta.emoji}</span>
+                <span className="faction-emoji text-4xl">{meta.emoji}</span>
                 <span
                   className="font-mono text-[10px] uppercase tracking-[0.16em]"
                   style={{ color: meta.color }}

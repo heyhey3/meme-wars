@@ -102,10 +102,11 @@ export default function BattlePage() {
         </div>
       ) : null}
 
-      <section className="relative">
+      <section className="relative overflow-hidden">
+        <span className="hero-scan" aria-hidden />
         <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
           <div>
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="reveal flex flex-wrap items-center gap-2">
               <Pill>NEAR HACKATHON 2026</Pill>
               <Pill>TRACK · MEMECOINS</Pill>
               <Pill>NEP-141</Pill>
@@ -113,17 +114,26 @@ export default function BattlePage() {
                 <span className="live-dot" /> on-chain
               </Pill>
             </div>
-            <h1 className="display mt-5 text-5xl text-white sm:text-6xl lg:text-7xl">
+            <h1
+              className="reveal display mt-5 text-5xl text-white sm:text-6xl lg:text-7xl"
+              style={{ animationDelay: "80ms" }}
+            >
               THE JOKE
               <br />
               <span className="gradient-text">NEEDS RULES.</span>
             </h1>
-            <p className="mt-5 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
+            <p
+              className="reveal mt-5 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base"
+              style={{ animationDelay: "160ms" }}
+            >
               Two factions fight a daily on-chain war. Winners mint, losers
               burn, and the map remembers. No admin, no oracle, no backend —
               just a NEP-141 token with a mechanic.
             </p>
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div
+              className="reveal mt-6 flex flex-wrap gap-2"
+              style={{ animationDelay: "240ms" }}
+            >
               <a href="#battle" className="btn btn-primary">
                 Enter the battle
               </a>
@@ -134,7 +144,10 @@ export default function BattlePage() {
                 See the map
               </Link>
             </div>
-            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+            <p
+              className="reveal mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-muted"
+              style={{ animationDelay: "300ms" }}
+            >
               Day {clock.current_day} · Season {clock.current_season} ·{" "}
               {clock.day_length_ns <= 120_000_000_000
                 ? "60s demo days"
@@ -142,7 +155,10 @@ export default function BattlePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-2.5">
+          <div
+            className="reveal grid grid-cols-2 gap-2.5"
+            style={{ animationDelay: "180ms" }}
+          >
             <StatTile
               label="Total supply"
               value={compactUnits(stats.total_supply, decimals)}
@@ -172,7 +188,8 @@ export default function BattlePage() {
 
       <section
         id="battle"
-        className="mt-10 grid gap-4 lg:grid-cols-[1.35fr_0.65fr]"
+        className="reveal mt-10 grid gap-4 lg:grid-cols-[1.35fr_0.65fr]"
+        style={{ animationDelay: "360ms" }}
       >
         <div className="space-y-4">
           <Panel className="p-5">
