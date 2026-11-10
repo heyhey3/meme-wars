@@ -14,7 +14,6 @@ import {
   CONTRACT_ID,
   DEMO_ACCOUNTS,
   MIN_STAKE,
-  STAKE,
   asWar,
   call,
   connectNear,

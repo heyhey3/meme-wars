@@ -50,6 +50,10 @@ track `memecoins`.
   keys in `~/.near-credentials`, never in the repo).
 - Demo state is real chain state. The two seeded players are demo bots and are
   labeled as such in the README and UI log.
+- Season 1 closed at day 30 in an **11–11 final-map tie** (3 tiles unclaimed),
+  so no season bonus was released. The hall of fame records it; season 2 is
+  live and the keeper continues. This is a good demonstration of the
+  final-map rule, including the tie case.
 
 ### Earlier staging (not for judges)
 

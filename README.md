@@ -100,9 +100,9 @@ keys live in `~/.near-credentials` (outside this repository).
 |---|---|
 | ![Battle](docs/screenshots/battle.png) | ![Map](docs/screenshots/map.png) |
 
-| Season | War log |
+| Season / hall of fame | War log |
 |---|---|
-| ![Season](docs/screenshots/season.png) | ![Log](docs/screenshots/log.png) |
+| ![Season hall of fame](docs/screenshots/season.png) | ![Log](docs/screenshots/log.png) |
 
 Mobile: [battle](docs/screenshots/battle-mobile.png) ·
 [map](docs/screenshots/map-mobile.png)

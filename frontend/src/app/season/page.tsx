@@ -372,9 +372,11 @@ export default function SeasonPage() {
                       >
                         {item.rewards_closed
                           ? "closed"
-                          : item.settled
-                            ? "claimable"
-                            : "live"}
+                          : !item.settled
+                            ? "live"
+                            : item.winner === null
+                              ? "tie"
+                              : "claimable"}
                       </span>
                     </div>
                     <MapGrid
