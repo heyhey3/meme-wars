@@ -118,6 +118,12 @@ Mobile: [battle](docs/screenshots/battle-mobile.png) ·
 | **Page shows streak, progress, mint/burn log** | Battle page countdown/tug bar/streak strip; `/log`; `get_log_tail` | Screenshots above; every row is a NEP-297 event |
 | **60-day simulation first** | `sim/simulate.py`, five scenarios, sensitivity, fixed seed, no third-party dependencies | `sim/results/*.svg`, `sim/results/summary.json`, `docs/PARAMS.md` |
 
+The live `memecoins` track asks for community-reactive supply, rule-based
+treasuries and onchain rituals, judged on the mechanic rather than the chart.
+This project has all three: the daily winner mints and the loser burns, cold
+days burn the treasury, the 30-day season pays from a rule-based treasury, and
+the daily enlist/settle plus the 25-cell map are the ritual. `$WAR` is NEP-141.
+
 ## The mechanic
 
 All amounts are integers; ratios are basis points (10,000 = 100%). The
@@ -407,11 +413,31 @@ The exact GitHub → Vercel → X → submission sequence, including switching
 accounts and the environment variables, is in
 [`docs/HOSTING.md`](docs/HOSTING.md).
 
+## Build disclosures
+
+- **New project.** Meme Wars was built during the NEAR Hackathon 2026 window.
+  There is no prior product, other-chain version, or old library carried into
+  this repo. The demo contract, bots and screenshots are project-owned testnet
+  artifacts.
+- **AI-assisted.** Claude Code was used for implementation, tests,
+  documentation and the simulation. The human set the scope, created and
+  deployed the testnet accounts, reviewed the result, and owns the submission.
+- **Open-source building blocks.** Rust: `near-sdk`/`near-contract-standards`,
+  `primitive-types`, `cargo-near`. Frontend: Next.js scaffold, React, Tailwind
+  CSS, NEAR Wallet Selector, `near-api-js`. Simulation: Python standard
+  library only. The game contract and battle UI are project-specific; no
+  third-party game template or game boilerplate was copied.
+- **Demo players.** `meme-wars-dogs.testnet` and `meme-wars-cats.testnet` are
+  project-owned demo bots, labeled in the event log and README. Their keys are
+  outside the repository.
+- **Other projects.** This README describes only Meme Wars. If the human
+  submits a second independent project under the same person, each README must
+  name the other; do that before submitting.
+
 ## What remains (human decisions)
 
 These are intentionally **not** filled in by the agent:
 
-- hosted frontend URL;
 - X demo post (must say “built at NEAR HACKATHON”, tag @NEARProtocol and
   #NEARHackathon, and attach a video/screenshots);
 - project name, lead name, contact email, team size;

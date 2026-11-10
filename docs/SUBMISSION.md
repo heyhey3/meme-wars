@@ -28,6 +28,16 @@ said yes.
 **Do not add other fields.** `website` is a spam trap: any non-empty value
 rejects the submission. The older draft's `website` field must be omitted.
 
+`nearAddress` is a **mainnet** payout account (named or 64-character implicit),
+never `war-demo.testnet` or any other testnet account. `demoUrl` is the public
+**X post** URL, not the Vercel URL; put the hosted frontend link in the post and
+README.
+
+### Contact consent (read verbatim before setting `true`)
+
+> “I agree that the organizers may use these details to review our submission
+> and contact us about this hackathon.”
+
 ## Placeholders the human must fill
 
 | Value | Status |
@@ -83,16 +93,18 @@ The demo post URL goes in `demoUrl`. Do not post it from an agent.
 
 ## Pre-submit checklist
 
-- [ ] Repository is public and pushed by the human.
-- [ ] README has the “do X, see Y” path and the hard-requirements evidence.
+- [ ] Repository is public and pushed by the human; keep it public through judging.
+- [ ] README has the “do X, see Y” path, the track fit and the hard-requirements evidence.
+- [x] README discloses AI assistance, open-source building blocks, prior work and demo bots.
 - [ ] `LICENSE` present (MIT).
 - [ ] No secrets in the repo or its history (`scripts/check-secrets.sh`).
-- [x] Hosted frontend is live at <https://meme-wars-iota.vercel.app>.
-- [ ] X post is live with a video/screenshots and the required tags.
-- [ ] Mainnet payout account is provided by the human.
-- [ ] `tracks` includes every track the project genuinely fits.
+- [x] Hosted frontend is live at <https://meme-wars-iota.vercel.app>; keep it live through 2026-11-18 (ideally 2026-11-25).
+- [ ] X post is live, public, says “built at NEAR HACKATHON”, tags `@NEARProtocol` and `#NEARHackathon`, attaches a video/screenshots, and links the hosted demo + repo.
+- [ ] `nearAddress` is a **mainnet** payout account, supplied by the human; not `war-demo.testnet`.
+- [ ] `tracks` includes every track the project genuinely fits (`memecoins`; `games` optional/human decision).
 - [ ] `idea` is 20–2000 chars and mentions the problem, product and NEAR fit.
-- [ ] `projectUrl` is the repository URL, `demoUrl` is the X post URL.
+- [ ] `projectUrl` is the public repository URL; `demoUrl` is the X post URL, not the Vercel URL.
+- [ ] If submitting a second independent project, both READMEs name each other.
 - [ ] The full JSON payload has been printed and the human said OK.
 - [ ] No `website` field; no extra fields.
 - [ ] `requestId` saved for retries.
