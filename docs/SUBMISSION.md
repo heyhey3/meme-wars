@@ -82,7 +82,7 @@ Draft:
 ```text
 built at NEAR HACKATHON — Meme Wars: pick DOGS or CATS, stake $WAR in a daily
 on-chain war, and the supply reacts. Winners mint, losers burn, the map
-remembers. 60-second testnet demo: <HOSTED FRONTEND URL>
+remembers. 60-second testnet demo: https://meme-wars-iota.vercel.app
 
 @NEARProtocol #NEARHackathon @NearLegion @NearBuilders
 
