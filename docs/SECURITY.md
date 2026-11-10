@@ -84,9 +84,11 @@ list was checked by hand.
    production distribution.
 8. **Frontend RPC proxy.** `/api/rpc` only proxies `call_function` queries for
    the configured contract. It caches view responses (1.2 s default; 1 h for
-   `get_config`) and can serve a stale response for up to 120 s if the upstream
-   RPC fails. Writes never go through the proxy; the wallet signs them.
-   Wallet Selector is configured with the FastNear testnet node URL for CORS.
+   `get_config`), tries a second public RPC (`NEAR_RPC_FALLBACK_URL`, default
+   `https://rpc.testnet.near.org`) if the primary is rate-limited, and can
+   serve a stale response for up to 5 minutes if both fail. Writes never go
+   through the proxy; the wallet signs them. Wallet Selector is configured
+   with the FastNear testnet node URL for CORS.
 9. **Not audited.** No third-party audit. Review the 326 KB wasm and the Rust
    source against the deployed code hash before using real funds.
 10. **Testnet only.** Tokens have no value. Do not send mainnet assets.

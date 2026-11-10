@@ -124,12 +124,15 @@ The code has working defaults for the demo, but set these explicitly:
 | `NEXT_PUBLIC_RPC_URL` | `https://test.rpc.fastnear.com` | all |
 | `NEXT_PUBLIC_EXPLORER_URL` | `https://explorer.testnet.near.org` | all |
 | `NEAR_RPC_URL` | `https://test.rpc.fastnear.com` | server (`/api/rpc`) |
+| `NEAR_RPC_FALLBACK_URL` | `https://rpc.testnet.near.org` | server, optional; used when the primary is rate-limited |
 | `NEXT_PUBLIC_REPO_URL` | the public GitHub URL | all, optional footer link |
 
 Why a proxy: browser reads go to `/api/rpc` (same origin), which validates
 that the call is a view call to `war-demo.testnet`, caches responses, and
-forwards to FastNear. This avoids CORS/429 on the public RPC. Writes are
-signed by the wallet and go directly to the chain.
+forwards to FastNear. If FastNear returns 429/5xx, the route tries the
+NEAR Foundation public endpoint (`NEAR_RPC_FALLBACK_URL`) before failing.
+This avoids CORS/429 on the public RPC. Writes are signed by the wallet and
+go directly to the chain.
 
 The frontend needs a Node/serverless runtime for `/api/rpc`; it is not a pure
 static site. Vercel supports this by default for Next.js. If the public RPC is

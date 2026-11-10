@@ -13,10 +13,18 @@ import { NextResponse } from "next/server";
 
 const CONTRACT_ID =
   process.env.NEXT_PUBLIC_CONTRACT_ID || "war-demo.testnet";
+const NETWORK_ID =
+  process.env.NEXT_PUBLIC_NETWORK_ID === "mainnet" ? "mainnet" : "testnet";
 const UPSTREAM =
   process.env.NEAR_RPC_URL ||
   process.env.NEXT_PUBLIC_RPC_URL ||
   "https://test.rpc.fastnear.com";
+// Public RPCs rate-limit independently. If the configured endpoint is busy,
+// try the NEAR Foundation public endpoint before failing the browser request.
+const FALLBACK_UPSTREAM =
+  process.env.NEAR_RPC_FALLBACK_URL || `https://rpc.${NETWORK_ID}.near.org`;
+const UPSTREAMS = [...new Set([UPSTREAM, FALLBACK_UPSTREAM].filter(Boolean))];
+const UPSTREAM_TIMEOUT_MS = 6_000;
 
 interface RpcRequest {
   jsonrpc?: string;
@@ -40,7 +48,7 @@ const CACHE_TTL_MS: Record<string, number> = {
   get_seasons: 15_000,
 };
 const DEFAULT_TTL_MS = 1_200;
-const MAX_STALE_MS = 120_000;
+const MAX_STALE_MS = 5 * 60_000;
 const cache = new Map<string, CacheEntry>();
 
 function errorResponse(id: RpcRequest["id"], code: number, message: string) {
@@ -82,31 +90,33 @@ export async function POST(request: Request) {
   }
 
   for (let attempt = 0; attempt < 2; attempt += 1) {
-    try {
-      const upstream = await fetch(UPSTREAM, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-        cache: "no-store",
-      });
-      if (!upstream.ok) throw new Error(`upstream HTTP ${upstream.status}`);
-      const data = (await upstream.json()) as { error?: unknown };
-      if (data.error) throw new Error("upstream error");
+    for (const upstreamUrl of UPSTREAMS) {
+      try {
+        const upstream = await fetch(upstreamUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+          cache: "no-store",
+          signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
+        });
+        if (!upstream.ok) throw new Error(`upstream HTTP ${upstream.status}`);
+        const data = (await upstream.json()) as { error?: unknown };
+        if (data.error) throw new Error("upstream error");
 
-      cache.set(key, { at: now, data });
-      if (cache.size > 500) cache.clear();
-      return NextResponse.json(data);
-    } catch {
-      if (attempt === 0) {
-        await new Promise((resolve) => setTimeout(resolve, 700));
-        continue;
+        cache.set(key, { at: Date.now(), data });
+        if (cache.size > 500) cache.clear();
+        return NextResponse.json(data);
+      } catch {
+        // Try the next upstream, then a second round.
       }
-      if (cached && now - cached.at <= MAX_STALE_MS) {
-        return NextResponse.json(cached.data);
-      }
-      return errorResponse(body.id, -32603, "RPC unavailable");
+    }
+    if (attempt === 0) {
+      await new Promise((resolve) => setTimeout(resolve, 350));
     }
   }
 
+  if (cached && Date.now() - cached.at <= MAX_STALE_MS) {
+    return NextResponse.json(cached.data);
+  }
   return errorResponse(body.id, -32603, "RPC unavailable");
 }
