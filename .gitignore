@@ -1,0 +1,43 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+near-credentials/
+
+# Rust
+target/
+**/*.wasm
+Cargo.lock.bak
+
+# Node
+node_modules/
+.next/
+out/
+dist/
+.turbo/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Local deployment records that may contain account-specific data
+.deploy/
+
+# Built artifact is committed at artifacts/meme_wars.wasm for reproducibility
+!artifacts/meme_wars.wasm
+
+# Agent tooling / generated rules (installed locally, not part of the project)
+.claude/
+skills-lock.json
+frontend/AGENTS.md

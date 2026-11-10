@@ -1,0 +1,8 @@
+{
+  "key": "cold_start",
+  "label": "Cold start (30 players)",
+  "n_players": 30,
+  "dogs_ratio": 0.5,
+  "participation": 0.4,
+  "days": 60
+}

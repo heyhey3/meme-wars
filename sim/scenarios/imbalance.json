@@ -1,0 +1,8 @@
+{
+  "key": "imbalance",
+  "label": "Imbalance 70/30",
+  "n_players": 300,
+  "dogs_ratio": 0.7,
+  "participation": 0.55,
+  "days": 60
+}

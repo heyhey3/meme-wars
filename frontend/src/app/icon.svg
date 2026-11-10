@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#0c1422"/>
+  <path d="M8 14h24v36H8z" fill="#ff5a3c" opacity=".22"/>
+  <path d="M32 14h24v36H32z" fill="#2dd4ff" opacity=".22"/>
+  <rect x="8" y="14" width="48" height="36" rx="8" fill="none" stroke="#1d2a42" stroke-width="2"/>
+  <text x="32" y="40" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="17" font-weight="700" fill="#e8eefb">MW</text>
+</svg>

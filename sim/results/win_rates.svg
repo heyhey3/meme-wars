@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" role="img">
+<rect width="960" height="420" fill="#0b1020"/>
+<text x="36" y="32" fill="#e2e8f0" font-size="20" font-weight="700">Day outcomes by scenario</text>
+<text x="36" y="50" fill="#8b98b8" font-size="12">% of simulated days</text>
+<rect x="36" y="58" width="12" height="12" fill="#ff5a3c" rx="2"/>
+<text x="54" y="68" fill="#cbd5e1" font-size="12">DOGS win</text>
+<rect x="166" y="58" width="12" height="12" fill="#2dd4ff" rx="2"/>
+<text x="184" y="68" fill="#cbd5e1" font-size="12">CATS win</text>
+<rect x="296" y="58" width="12" height="12" fill="#ffd166" rx="2"/>
+<text x="314" y="68" fill="#cbd5e1" font-size="12">Tie</text>
+<rect x="426" y="58" width="12" height="12" fill="#64748b" rx="2"/>
+<text x="444" y="68" fill="#cbd5e1" font-size="12">Cold</text>
+<text x="178" y="84" fill="#cbd5e1" font-size="12" text-anchor="end">Balanced</text>
+<rect x="190.0" y="64" width="269.1" height="26" fill="#ff5a3c" fill-opacity="0.9"/>
+<text x="324.6" y="81" fill="#0b1020" font-size="10" font-weight="700" text-anchor="middle">37%</text>
+<rect x="459.1" y="64" width="415.9" height="26" fill="#2dd4ff" fill-opacity="0.9"/>
+<text x="667.1" y="81" fill="#0b1020" font-size="10" font-weight="700" text-anchor="middle">57%</text>
+<rect x="875.1" y="64" width="48.9" height="26" fill="#64748b" fill-opacity="0.9"/>
+<text x="899.5" y="81" fill="#0b1020" font-size="10" font-weight="700" text-anchor="middle">7%</text>
+<text x="178" y="136" fill="#cbd5e1" font-size="12" text-anchor="end">Imbalance 70/30</text>
+<rect x="190.0" y="116" width="587.2" height="26" fill="#ff5a3c" fill-opacity="0.9"/>
+<text x="483.6" y="133" fill="#0b1020" font-size="10" font-weight="700" text-anchor="middle">80%</text>
+<rect x="777.2" y="116" width="146.8" height="26" fill="#2dd4ff" fill-opacity="0.9"/>
+<text x="850.6" y="133" fill="#0b1020" font-size="10" font-weight="700" text-anchor="middle">20%</text>
+<text x="178" y="188" fill="#cbd5e1" font-size="12" text-anchor="end">Sybil raid (+30% DOGS, 10d)</text>
+<rect x="190.0" y="168" width="403.7" height="26" fill="#ff5a3c" fill-opacity="0.9"/>
+<text x="391.9" y="185" fill="#0b1020" font-size="10" font-weight="700" text-anchor="middle">55%</text>
+<rect x="593.7" y="168" width="305.8" height="26" fill="#2dd4ff" fill-opacity="0.9"/>
+<text x="746.6" y="185" fill="#0b1020" font-size="10" font-weight="700" text-anchor="middle">42%</text>
+<rect x="899.5" y="168" width="24.5" height="26" fill="#64748b" fill-opacity="0.9"/>
+<text x="178" y="240" fill="#cbd5e1" font-size="12" text-anchor="end">Cold start (30 players)</text>
+<rect x="190.0" y="220" width="734.0" height="26" fill="#64748b" fill-opacity="0.9"/>
+<text x="557.0" y="237" fill="#0b1020" font-size="10" font-weight="700" text-anchor="middle">100%</text>
+<text x="178" y="292" fill="#cbd5e1" font-size="12" text-anchor="end">Churn (20%/week)</text>
+<rect x="190.0" y="272" width="48.9" height="26" fill="#ff5a3c" fill-opacity="0.9"/>
+<text x="214.5" y="289" fill="#0b1020" font-size="10" font-weight="700" text-anchor="middle">7%</text>
+<rect x="238.9" y="272" width="61.2" height="26" fill="#2dd4ff" fill-opacity="0.9"/>
+<text x="269.5" y="289" fill="#0b1020" font-size="10" font-weight="700" text-anchor="middle">8%</text>
+<rect x="300.1" y="272" width="623.9" height="26" fill="#64748b" fill-opacity="0.9"/>
+<text x="612.0" y="289" fill="#0b1020" font-size="10" font-weight="700" text-anchor="middle">85%</text>
+</svg>

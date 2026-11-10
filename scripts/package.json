@@ -1,0 +1,12 @@
+{
+  "name": "meme-wars-scripts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "seed": "node seed.mjs",
+    "keeper": "node keeper.mjs"
+  },
+  "dependencies": {
+    "near-api-js": "5.1.1"
+  }
+}
