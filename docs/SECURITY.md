@@ -90,6 +90,15 @@ list was checked by hand.
 9. **Not audited.** No third-party audit. Review the 326 KB wasm and the Rust
    source against the deployed code hash before using real funds.
 10. **Testnet only.** Tokens have no value. Do not send mainnet assets.
+11. **Frontend dependency audit.** `npm audit --omit=dev` reports five high
+    advisories in the Meteor wallet dependency chain
+    (`@meteorwallet/sdk@1.0.24` → `nanoid` / `query-string` /
+    `decode-uri-component`). They are client-side denial-of-service advisories,
+    not contract or key-handling flaws. The current wallet-selector release
+    still pins that SDK, and npm's suggested fix is a major downgrade to
+    wallet-selector 9.3.0, which was not taken. The demo's primary wallet path
+    is MyNearWallet; revisit this before mainnet. Low advisories remain in
+    `@near-js/*` via the wallet packages.
 
 ## Repository privacy
 
