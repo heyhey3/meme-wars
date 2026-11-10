@@ -113,7 +113,7 @@ async function loadSnapshot(accountId: string | null): Promise<GameSnapshot> {
   const config = configCache ?? (first[5] as Config);
   configCache = config;
 
-  const fromDay = Math.max(1, clock.current_day - 21);
+  const fromDay = Math.max(1, clock.current_day - 60);
   const includeSeasons =
     !seasonsCache ||
     Date.now() - seasonsCache.at > 30_000 ||
