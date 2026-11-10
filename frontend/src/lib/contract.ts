@@ -1,7 +1,7 @@
 export const NETWORK_ID =
   process.env.NEXT_PUBLIC_NETWORK_ID === "mainnet" ? "mainnet" : "testnet";
 export const CONTRACT_ID =
-  process.env.NEXT_PUBLIC_CONTRACT_ID || "meme-wars.testnet";
+  process.env.NEXT_PUBLIC_CONTRACT_ID || "war-demo.testnet";
 export const RPC_URL =
   process.env.NEXT_PUBLIC_RPC_URL || "https://test.rpc.fastnear.com";
 // Browser reads go through our own origin; the API route proxies to the RPC.
