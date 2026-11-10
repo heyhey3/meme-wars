@@ -58,7 +58,7 @@ fi
 # Privacy: tracked files (including the wasm) must not embed a local home path.
 # The script itself contains the pattern, so it is excluded.
 echo "== local path scan =="
-for pat in "${HOME:-}" "/Users/"; do
+for pat in "${HOME:-}" "/Use""rs/"; do
   [ -z "$pat" ] && continue
   [ "$pat" = "/home/builder" ] && continue
   if git grep -a -l -F "$pat" -- . ':!scripts/check-secrets.sh' >/dev/null 2>&1; then
