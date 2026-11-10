@@ -256,7 +256,7 @@ frontend/                   Next.js 16 + React 19 + Tailwind 4 + Wallet Selector
 sim/                        pure-Python 60-day simulation + committed results
 scripts/                    seed.mjs, keeper.mjs, deploy.sh, verify.sh
 config/                     demo.json, prod.json, wrapped init args
-docs/                       PARAMS, PROGRESS, PARTNERS, SECURITY, SUBMISSION, screenshots
+docs/                       PARAMS, PROGRESS, PARTNERS, SECURITY, SUBMISSION, HOSTING, screenshots
 ```
 
 ### Contract API
@@ -384,8 +384,14 @@ NEAR_RPC_URL=https://test.rpc.fastnear.com
 ```
 
 then `npm install && npm run build && npm run start`, or deploy to
-Vercel/Netlify. No hosting credentials are available in this environment, so
-the public URL is still a human action.
+Vercel/Netlify. On Vercel set **Root Directory = `frontend`** and keep the
+default Next.js build; `/api/rpc` needs a Node/serverless runtime, not a
+static export.
+
+No hosting credentials are available in this environment, so the public URL
+is still a human action. The exact GitHub → Vercel → X → submission sequence,
+including a different GitHub account and the environment variables, is in
+[`docs/HOSTING.md`](docs/HOSTING.md).
 
 ## What remains (human decisions)
 
@@ -404,7 +410,8 @@ The live HACKATHON.md submission API uses `requestId`, `projectName`,
 `leadName`, `email`, `size`, `tracks`, `nearAddress`, `projectUrl` (repository),
 `demoUrl` (X post), `idea`, and `consent`. `website` is a spam trap and must
 not be sent. The deadline is **2026-11-14 23:59 UTC**. See
-[`docs/SUBMISSION.md`](docs/SUBMISSION.md) for the draft and checklist.
+[`docs/SUBMISSION.md`](docs/SUBMISSION.md) for the draft and checklist, and
+[`docs/HOSTING.md`](docs/HOSTING.md) for GitHub/Vercel/X steps.
 
 ## License
 
