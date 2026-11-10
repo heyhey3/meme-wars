@@ -102,6 +102,12 @@ address. The demo players' signing keys live outside the repository in
 `near-credentials/` are gitignored. `scripts/check-secrets.sh` is run before
 publishing.
 
+The contract wasm is built with
+`--remap-path-prefix=${HOME}=/home/builder`, so it contains no local
+home-directory path. The demo was re-deployed code-only with that build
+(`6x5uW8keTApyfiyBZF3bPb4rPXgRzkdR2LaEVxxz8d6o`); the game state, season and
+balances were preserved and `scripts/verify.sh` passed after the deploy.
+
 The wallet addresses, GitHub repo URL, X post URL and Vercel app URL become
 public only when the human chooses to publish them; the agent never posts or
 pushes them on its own.

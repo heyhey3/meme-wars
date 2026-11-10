@@ -39,8 +39,15 @@ if [ "$NETWORK" = "mainnet" ] && [ "${I_MEAN_MAINNET:-0}" != "1" ]; then
 fi
 
 cd "$ROOT/contracts/meme-wars"
-echo "== build =="
-cargo near build non-reproducible-wasm
+echo "== build (path-sanitized) =="
+# Remap the local home directory so the wasm never embeds a personal path.
+# /home/builder is a generic, non-identifying prefix.
+if [ -z "${HOME:-}" ]; then
+  echo "HOME is not set; cannot sanitize build paths" >&2
+  exit 1
+fi
+cargo near build non-reproducible-wasm \
+  --env "RUSTFLAGS=--remap-path-prefix=${HOME}=/home/builder"
 
 echo "== deploy $ACCOUNT ($NETWORK, fresh=$FRESH) =="
 if [ "$FRESH" = "1" ]; then

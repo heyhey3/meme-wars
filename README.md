@@ -12,8 +12,8 @@ and no backend in the game loop.
 
 - **Track:** NEAR HACKATHON 2026 · `memecoins` — “The joke needs rules.”
 - **Demo contract (testnet, 60-second days):** [`war-demo.testnet`](https://explorer.testnet.near.org/accounts/war-demo.testnet)
-- **Contract code hash:** `CMTGDQBsmxUL5fmUjYGN7MGUGF1e443k7bQ1cuKUDwSs`
-  (matches `artifacts/meme_wars.wasm`, SHA-256 `a8adde0481619f5395825daf023a4a9ec1188ad96efe68244dc5adeac3557dc4`)
+- **Contract code hash:** `FUPGHgqHTidZM9RMWj9Pg7wbAn2twZz4Fsa6YnuxoGgV`
+  (matches `artifacts/meme_wars.wasm`, SHA-256 `d70778ea505882540cdf22cd463502f9134b83e39c06bb20ff717eae33d019ee`)
 - **Frontend:** runs locally with `npm run dev` (see below). A hosted URL is
   pending because this environment has no Vercel/Netlify credentials.
 - **Demo video / X post:** human-owned and pending.
@@ -312,8 +312,10 @@ CONTRACT=war-demo.testnet ./scripts/verify.sh
 ```
 
 The contract was built with `cargo near build non-reproducible-wasm` using
-Rust 1.95.0 (pinned in `rust-toolchain.toml`). The deployed code hash matches
-the committed artifact in `artifacts/meme_wars.wasm`; see the top of this README.
+Rust 1.95.0 (pinned in `rust-toolchain.toml`), with
+`--remap-path-prefix=${HOME}=/home/builder` so the binary does not embed a
+local home path. The deployed code hash matches the committed artifact in
+`artifacts/meme_wars.wasm`; see the top of this README.
 
 ## Security / trust surface
 
@@ -367,10 +369,15 @@ is what near-sdk's generated `new` expects).
 
 ```bash
 cd contracts/meme-wars
-cargo near build non-reproducible-wasm
+# Remap the local home path so the wasm does not embed a personal directory.
+cargo near build non-reproducible-wasm \
+  --env "RUSTFLAGS=--remap-path-prefix=${HOME}=/home/builder"
 near contract deploy war-demo.testnet use-file target/near/meme_wars.wasm \
   with-init-call new file-args ../../config/demo.init.json
 ```
+
+A code-only update (state preserved) uses the same sanitized build and
+`without-init-call`; `scripts/deploy.sh` does this with `FRESH=0`.
 
 ### Production recipe (24h)
 

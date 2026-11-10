@@ -26,12 +26,14 @@ track `memecoins`.
   - daily mint 500,000 WAR, 20% loss burn, 1.50× underdog
   - cold line 150,000 WAR, cold burn 25,000 WAR, season bonus 5%
 - Account creation tx: `EA35WdKkX2EuJ3A6Jd5jaK2ucWtsCxikdxK3pC9pBJYu`
-- Final code deploy tx:
+- Initial code deploy tx:
   `8r6kL3SKBQ3J7waB2PkUHGbRQjKa5HnQKCL91cpJGyr4`
+- Current code deploy tx (path-sanitized, state-preserving):
+  `6x5uW8keTApyfiyBZF3bPb4rPXgRzkdR2LaEVxxz8d6o`
 - On-chain code hash:
-  `CMTGDQBsmxUL5fmUjYGN7MGUGF1e443k7bQ1cuKUDwSs`
+  `FUPGHgqHTidZM9RMWj9Pg7wbAn2twZz4Fsa6YnuxoGgV`
 - Matching local artifact: `artifacts/meme_wars.wasm`
-  (SHA-256 `a8adde0481619f5395825daf023a4a9ec1188ad96efe68244dc5adeac3557dc4`)
+  (SHA-256 `d70778ea505882540cdf22cd463502f9134b83e39c06bb20ff717eae33d019ee`)
 - Seeded demo players:
   - `meme-wars-dogs.testnet` (DOGS)
   - `meme-wars-cats.testnet` (CATS)
@@ -51,9 +53,10 @@ track `memecoins`.
 - Demo state is real chain state. The two seeded players are demo bots and are
   labeled as such in the README and UI log.
 - Season 1 closed at day 30 in an **11–11 final-map tie** (3 tiles unclaimed),
-  so no season bonus was released. The hall of fame records it; season 2 is
-  live and the keeper continues. This is a good demonstration of the
-  final-map rule, including the tie case.
+  so no season bonus was released. The hall of fame records it. Later seasons
+  continue on the same contract; the page reads the current season live rather
+  than assuming a fixed one. This is a good demonstration of the final-map
+  rule, including the tie case.
 
 ### Earlier staging (not for judges)
 
@@ -76,8 +79,10 @@ accumulate cold days. Deploy with a fresh account and remove full-access keys.
   enlist; streaks; underdog flip; tie; cold; burns; claims once-only; claim
   window; season bonus; season leftover burn; map recapture ownership;
   settlement ordering/idempotence; auto-settle; accounting invariants.
-- Contract build: `cargo near build non-reproducible-wasm` → 326.7 KB wasm,
-  SHA-256 above. Rust 1.95.0 pinned in `rust-toolchain.toml`.
+- Contract build: `cargo near build non-reproducible-wasm` with
+  `--remap-path-prefix=${HOME}=/home/builder` → 326.9 KB wasm, SHA-256 above.
+  The remap keeps local build paths out of the binary. Rust 1.95.0 pinned in
+  `rust-toolchain.toml`.
 - Frontend: `npx tsc --noEmit` clean; `npm run build` succeeds with 9 routes
   (including the dynamic `/api/rpc` proxy).
 - Simulation: `python3 sim/simulate.py` self-test passes; results committed.
