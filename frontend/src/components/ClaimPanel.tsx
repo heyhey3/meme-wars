@@ -45,7 +45,7 @@ export function ClaimPanel({ snapshot }: { snapshot: GameSnapshot }) {
   const visible: ClaimEntry[] = [];
   let actionCount = 0;
   for (const entry of entries) {
-    if (actionCount + entry.actions.length > 10) break;
+    if (actionCount + entry.actions.length > 6) break;
     visible.push(entry);
     actionCount += entry.actions.length;
   }

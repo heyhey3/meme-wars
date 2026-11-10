@@ -9,6 +9,7 @@ import {
   GAS_60,
   GAS_100,
   STORAGE_DEPOSIT,
+  canClaimFaucet,
 } from "@/lib/contract";
 import { fc, type NearAction } from "@/lib/actions";
 import { compactUnits, formatWar } from "@/lib/format";
@@ -65,7 +66,7 @@ export default function BattlePage() {
         ),
       );
     }
-    if (snapshot.faucet?.eligible) {
+    if (canClaimFaucet(snapshot.faucet)) {
       actions.push(fc("claim_faucet", {}, { gas: GAS_30 }));
     }
     actions.push(fc("join_faction", { faction }, { gas: GAS_30 }));

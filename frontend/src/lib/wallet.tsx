@@ -61,6 +61,7 @@ function getSelector(): Promise<WalletSelector> {
       },
       modules: [setupMyNearWallet(), setupMeteorWallet()],
       allowMultipleSelectors: true,
+      languageCode: "en",
     });
   }
   return selectorPromise;

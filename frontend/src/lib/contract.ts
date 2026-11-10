@@ -350,3 +350,14 @@ export function parseEventData(entry: LogEntry): Record<string, unknown> {
   }
 }
 
+
+/** Faucet eligibility for an onboarding batch: the storage_deposit action in
+ * the same transaction registers the account before claim_faucet runs. */
+export function canClaimFaucet(faucet: FaucetState | null): boolean {
+  return Boolean(
+    faucet &&
+      faucet.demo_mode &&
+      !faucet.claimed &&
+      BigInt(faucet.remaining) >= BigInt(faucet.amount),
+  );
+}

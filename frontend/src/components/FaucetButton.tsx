@@ -2,7 +2,12 @@
 
 import { useGame } from "@/hooks/useGame";
 import { useWallet } from "@/lib/wallet";
-import { GAS_30, GAS_60, STORAGE_DEPOSIT } from "@/lib/contract";
+import {
+  GAS_30,
+  GAS_60,
+  STORAGE_DEPOSIT,
+  canClaimFaucet,
+} from "@/lib/contract";
 import { fc } from "@/lib/actions";
 import { cn } from "@/lib/format";
 import { Spinner } from "./ui";
@@ -40,7 +45,7 @@ export function FaucetButton({
       </span>
     );
   }
-  if (!faucet.eligible) {
+  if (!canClaimFaucet(faucet)) {
     return (
       <span className={cn("chip", className)}>
         Faucet unavailable

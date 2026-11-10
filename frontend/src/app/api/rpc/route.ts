@@ -38,7 +38,6 @@ interface CacheEntry {
 const CACHE_TTL_MS: Record<string, number> = {
   get_config: 60 * 60 * 1000,
   get_seasons: 15_000,
-  get_faucet_state: 3_000,
 };
 const DEFAULT_TTL_MS = 1_200;
 const MAX_STALE_MS = 120_000;
