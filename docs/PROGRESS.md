@@ -21,6 +21,7 @@ track `memecoins`.
 ### Demo (the one judges should use)
 
 - Contract: **`war-demo.testnet`** (testnet)
+- Hosted frontend: **<https://meme-wars-iota.vercel.app>**
 - Config: `config/demo.json` / `config/demo.init.json`
   - 60-second days, 30-day season, demo faucet 100,000 WAR/account
   - daily mint 500,000 WAR, 20% loss burn, 1.50× underdog
@@ -119,7 +120,8 @@ accumulate cold days. Deploy with a fresh account and remove full-access keys.
 
 ## Open items (human)
 
-- Hosted frontend URL (Vercel/Netlify; no credentials in this environment).
+- Real-wallet end-to-end test on the hosted frontend (join, enlist, settle,
+  claim, season claim). This is the main unverified path.
 - X demo post with “built at NEAR HACKATHON”, @NEARProtocol and
   #NEARHackathon, plus a video or screenshots.
 - Project name, lead name, contact email, team size.

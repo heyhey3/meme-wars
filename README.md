@@ -14,8 +14,8 @@ and no backend in the game loop.
 - **Demo contract (testnet, 60-second days):** [`war-demo.testnet`](https://explorer.testnet.near.org/accounts/war-demo.testnet)
 - **Contract code hash:** `FUPGHgqHTidZM9RMWj9Pg7wbAn2twZz4Fsa6YnuxoGgV`
   (matches `artifacts/meme_wars.wasm`, SHA-256 `d70778ea505882540cdf22cd463502f9134b83e39c06bb20ff717eae33d019ee`)
-- **Frontend:** runs locally with `npm run dev` (see below). A hosted URL is
-  pending because this environment has no Vercel/Netlify credentials.
+- **Live frontend:** <https://meme-wars-iota.vercel.app>
+  (also runs locally with `npm run dev`; see below).
 - **Demo video / X post:** human-owned and pending.
 - **Submission:** not sent. The full payload and X draft are in
   [`docs/SUBMISSION.md`](docs/SUBMISSION.md) and must be confirmed by the human.
@@ -396,16 +396,15 @@ NEXT_PUBLIC_CONTRACT_ID=war-demo.testnet
 NEXT_PUBLIC_RPC_URL=https://test.rpc.fastnear.com
 NEXT_PUBLIC_EXPLORER_URL=https://explorer.testnet.near.org
 NEAR_RPC_URL=https://test.rpc.fastnear.com
+NEAR_RPC_FALLBACK_URL=https://rpc.testnet.near.org
 ```
 
 then `npm install && npm run build && npm run start`, or deploy to
 Vercel/Netlify. On Vercel set **Root Directory = `frontend`** and keep the
 default Next.js build; `/api/rpc` needs a Node/serverless runtime, not a
-static export.
-
-No hosting credentials are available in this environment, so the public URL
-is still a human action. The exact GitHub → Vercel → X → submission sequence,
-including a different GitHub account and the environment variables, is in
+static export. The demo is live at <https://meme-wars-iota.vercel.app>.
+The exact GitHub → Vercel → X → submission sequence, including switching
+accounts and the environment variables, is in
 [`docs/HOSTING.md`](docs/HOSTING.md).
 
 ## What remains (human decisions)

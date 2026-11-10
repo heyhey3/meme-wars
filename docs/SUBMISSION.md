@@ -87,8 +87,7 @@ The demo post URL goes in `demoUrl`. Do not post it from an agent.
 - [ ] README has the “do X, see Y” path and the hard-requirements evidence.
 - [ ] `LICENSE` present (MIT).
 - [ ] No secrets in the repo or its history (`scripts/check-secrets.sh`).
-- [ ] Hosted frontend URL is live (the repo works locally without it, but the
-      submission is stronger with it).
+- [x] Hosted frontend is live at <https://meme-wars-iota.vercel.app>.
 - [ ] X post is live with a video/screenshots and the required tags.
 - [ ] Mainnet payout account is provided by the human.
 - [ ] `tracks` includes every track the project genuinely fits.
