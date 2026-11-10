@@ -57,14 +57,10 @@ track `memecoins`.
 
 ### Earlier staging (not for judges)
 
-- `meme-wars.testnet` — an earlier 60-second deployment with the pre-final
-  build. It has a backlog of unsettled days and is not referenced by the
-  frontend or README.
-- `meme-wars-demo.testnet` — the first deployment used to validate `new()`.
-  Also not referenced.
-
-They can be deleted at the end of the hackathon. They are listed here so a
-reviewer who finds them knows they are not the demo.
+Earlier development deployments were used to validate `new()`, the 60-second
+clock and the keeper. They are not referenced by the frontend or README and
+can be deleted at the end of the hackathon. Their IDs are intentionally not
+repeated here; the only demo a reviewer needs is `war-demo.testnet`.
 
 ### Production recipe
 

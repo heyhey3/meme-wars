@@ -91,6 +91,21 @@ list was checked by hand.
    source against the deployed code hash before using real funds.
 10. **Testnet only.** Tokens have no value. Do not send mainnet assets.
 
+## Repository privacy
+
+No personal GitHub/X/Vercel handles, email addresses, local home-directory
+paths, SSH keys or API keys are committed to this repository. The only account
+IDs in the repo are **project-owned testnet accounts** created for the demo
+(`war-demo.testnet` and the two seeded players) plus the public contract
+address. The demo players' signing keys live outside the repository in
+`~/.near-credentials`; `.env*`, `.vercel/`, `.netlify/`, `*.pem`, `*.key` and
+`near-credentials/` are gitignored. `scripts/check-secrets.sh` is run before
+publishing.
+
+The wallet addresses, GitHub repo URL, X post URL and Vercel app URL become
+public only when the human chooses to publish them; the agent never posts or
+pushes them on its own.
+
 ## Commands
 
 ```bash

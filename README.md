@@ -256,6 +256,8 @@ frontend/                   Next.js 16 + React 19 + Tailwind 4 + Wallet Selector
 sim/                        pure-Python 60-day simulation + committed results
 scripts/                    seed.mjs, keeper.mjs, deploy.sh, verify.sh
 config/                     demo.json, prod.json, wrapped init args
+.github/workflows/ci.yml    contract tests, frontend build, simulation, secret scan
+Makefile                    convenience targets (make check)
 docs/                       PARAMS, PROGRESS, PARTNERS, SECURITY, SUBMISSION, HOSTING, screenshots
 ```
 
@@ -285,7 +287,13 @@ or `withdraw_treasury`.
 
 ## Testing and verification
 
+CI runs contract tests, the frontend production build, the simulation and the
+secret scan on every push/PR (`.github/workflows/ci.yml`). Locally:
+
 ```bash
+# macOS: this environment needs the CLT SDK for cargo/make
+DEVELOPER_DIR=/Library/Developer/CommandLineTools make check
+# or individually:
 # contract: 28 tests (NEP-141, join/enlist rules, streaks, underdog,
 # tie, cold, burns, claims, seasons, map recapture, invariants)
 cd contracts/meme-wars

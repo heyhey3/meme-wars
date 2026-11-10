@@ -41,3 +41,8 @@ venv/
 .claude/
 skills-lock.json
 frontend/AGENTS.md
+
+# Hosting CLI state (contains local project/team IDs)
+.vercel/
+.netlify/
+.wrangler/
