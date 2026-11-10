@@ -607,8 +607,8 @@ export default function AboutPage() {
           />
           <ol className="mt-4 space-y-2.5 text-[11px] leading-relaxed text-muted">
             {[
-              "Connect a testnet wallet.",
-              "Pick DOGS or CATS. The join transaction registers storage and, when the faucet is eligible, claims 100,000 test WAR in the same batch.",
+              "Connect a testnet wallet with a little testnet NEAR for gas and the 0.01 NEAR storage deposit.",
+              "Pick DOGS or CATS. The join transaction registers storage and, when the faucet is eligible, claims 100,000 test WAR in the same batch. The demo faucet gives WAR, not NEAR.",
               "Enlist 1,000 WAR; the tug bar, your locked stake and the streak strip update.",
               "Wait for the 60-second day to end and click Settle; a winner, a mint/burn row and a map tile appear.",
               "Claim the stake + reward; your balance and the ledger update.",
