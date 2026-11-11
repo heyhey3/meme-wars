@@ -188,6 +188,7 @@ remembers. 60-second testnet demo: https://meme-wars-iota.vercel.app
 
 Good attachments (already in the repo):
 
+- `docs/demo/meme-wars-demo.mp4` — 50-second silent recording from the live site
 - `docs/screenshots/battle.png`
 - `docs/screenshots/map.png`
 - `docs/screenshots/season.png`

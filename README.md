@@ -107,6 +107,12 @@ keys live in `~/.near-credentials` (outside this repository).
 Mobile: [battle](docs/screenshots/battle-mobile.png) ·
 [map](docs/screenshots/map-mobile.png)
 
+### Demo video (50s)
+
+[`docs/demo/meme-wars-demo.mp4`](docs/demo/meme-wars-demo.mp4) — 1280×720,
+silent, recorded from the live site with title/outro cards. Intended for the X
+demo post.
+
 ## Hard requirements — evidence
 
 | Requirement | Where it lives | Evidence |
